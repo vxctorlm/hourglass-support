@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#f5efe4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#11100f" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Official support for Hourglass, the focus timer that turns completed sessions into a living civilization on Mac, iPhone, and iPad.">
+  <title>Hourglass Support</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f6f1e8;
+      --surface: rgba(255, 255, 255, .72);
+      --surface-strong: #fffdf8;
+      --text: #201d18;
+      --muted: #696258;
+      --line: rgba(32, 29, 24, .12);
+      --accent: #b55d35;
+      --accent-strong: #8d3f20;
+      --accent-soft: rgba(181, 93, 53, .12);
+      --shadow: 0 20px 55px rgba(75, 53, 33, .10);
+      --radius: 26px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #11100f;
+        --surface: rgba(34, 31, 28, .78);
+        --surface-strong: #24211e;
+        --text: #f4eee4;
+        --muted: #b8afa3;
+        --line: rgba(255, 255, 255, .11);
+        --accent: #ef9a6d;
+        --accent-strong: #ffc09d;
+        --accent-soft: rgba(239, 154, 109, .12);
+        --shadow: 0 24px 60px rgba(0, 0, 0, .28);
+      }
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 0%, rgba(224, 145, 96, .18), transparent 34rem),
+        radial-gradient(circle at 92% 18%, rgba(199, 169, 104, .14), transparent 30rem),
+        var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: inherit; }
+
+    .shell {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 24px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 750;
+      letter-spacing: -.02em;
+    }
+
+    .brand img {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      box-shadow: 0 8px 22px rgba(55, 38, 24, .18);
+    }
+
+    .languages {
+      display: inline-flex;
+      padding: 4px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      backdrop-filter: blur(18px);
+    }
+
+    .languages button {
+      min-width: 46px;
+      border: 0;
+      border-radius: 999px;
+      padding: 7px 11px;
+      color: var(--muted);
+      background: transparent;
+      font: inherit;
+      font-size: .82rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .languages button[aria-selected="true"] {
+      color: var(--text);
+      background: var(--surface-strong);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, .08);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(54px, 8vw, 92px) clamp(24px, 6vw, 70px);
+      border: 1px solid var(--line);
+      border-radius: 34px;
+      background: linear-gradient(145deg, var(--surface-strong), var(--surface));
+      box-shadow: var(--shadow);
+      isolation: isolate;
+    }
+
+    .hero::after {
+      position: absolute;
+      z-index: -1;
+      right: -100px;
+      bottom: -180px;
+      width: 430px;
+      height: 430px;
+      border-radius: 50%;
+      background: radial-gradient(circle, var(--accent-soft), transparent 68%);
+      content: "";
+    }
+
+    .eyebrow {
+      margin: 0 0 13px;
+      color: var(--accent-strong);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(2.7rem, 7vw, 5.8rem);
+      line-height: .98;
+      letter-spacing: -.065em;
+    }
+
+    .lead {
+      max-width: 720px;
+      margin: 25px 0 0;
+      color: var(--muted);
+      font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      background: var(--surface-strong);
+      text-decoration: none;
+      font-weight: 750;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .button.primary {
+      border-color: transparent;
+      color: #fff;
+      background: var(--accent-strong);
+    }
+
+    .button:hover { transform: translateY(-2px); box-shadow: 0 9px 22px rgba(0, 0, 0, .10); }
+    .button:focus-visible, button:focus-visible, a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+    .section { padding: 68px 0 0; }
+
+    .section-heading {
+      max-width: 680px;
+      margin-bottom: 24px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.1;
+      letter-spacing: -.04em;
+    }
+
+    .section-heading p, .card p, .faq p, .contact p { color: var(--muted); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .card, .faq, .contact {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 10px 35px rgba(50, 36, 23, .05);
+      backdrop-filter: blur(18px);
+    }
+
+    .card { padding: 25px; }
+
+    .icon {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 20px;
+      place-items: center;
+      border-radius: 14px;
+      color: var(--accent-strong);
+      background: var(--accent-soft);
+      font-size: 1.25rem;
+      font-weight: 800;
+    }
+
+    h3 { margin: 0 0 8px; font-size: 1.15rem; letter-spacing: -.02em; }
+    .card p { margin: 0; }
+
+    .faq { overflow: hidden; }
+
+    details { border-top: 1px solid var(--line); }
+    details:first-child { border-top: 0; }
+
+    summary {
+      position: relative;
+      padding: 22px 58px 22px 24px;
+      list-style: none;
+      font-weight: 760;
+      cursor: pointer;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      position: absolute;
+      top: 50%;
+      right: 24px;
+      color: var(--accent);
+      content: "+";
+      font-size: 1.45rem;
+      transform: translateY(-50%);
+    }
+    details[open] summary::after { content: "−"; }
+    .answer { padding: 0 58px 23px 24px; }
+    .answer p { margin: 0; }
+    .answer p + p { margin-top: 10px; }
+
+    .contact {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      margin-top: 68px;
+      padding: clamp(26px, 5vw, 44px);
+    }
+
+    .contact h2 { font-size: clamp(1.65rem, 3.5vw, 2.35rem); }
+    .contact p { max-width: 630px; margin: 8px 0 0; }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 34px 0 42px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    footer nav { display: flex; gap: 18px; }
+
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: 1fr; }
+      .contact { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 480px) {
+      .shell { width: min(100% - 20px, 1080px); }
+      .topbar { padding: 14px 0; }
+      .brand span { display: none; }
+      .hero { border-radius: 26px; }
+      .languages button { min-width: 42px; padding-inline: 9px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .button { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shell topbar">
+    <a class="brand" href="index.html" aria-label="Hourglass Support">
+      <img src="hourglass-icon.png" alt="Hourglass app icon">
+      <span>Hourglass Support</span>
+    </a>
+    <nav class="languages" aria-label="Language">
+      <button type="button" data-language="en" aria-selected="true">EN</button>
+      <button type="button" data-language="es" aria-selected="false">ES</button>
+      <button type="button" data-language="zh" aria-selected="false">中文</button>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <p class="eyebrow" data-copy="eyebrow">Hourglass · Support</p>
+      <h1 data-copy="title">Focus your time. Grow your world.</h1>
+      <p class="lead" data-copy="lead">Hourglass turns focused time into the story of a living civilization. Find quick answers for Mac, iPhone, and iPad, or contact us directly.</p>
+      <div class="actions">
+        <a class="button primary" href="mailto:vxctor@automore.es?subject=Hourglass%20Support" data-copy="contactButton">Contact support</a>
+        <a class="button" href="privacy.html" data-copy="privacyButton">Privacy Policy</a>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="start-title">
+      <div class="section-heading">
+        <h2 id="start-title" data-copy="startTitle">A simple way to begin</h2>
+        <p data-copy="startIntro">Set your rhythm, start a session, and let every completed round leave a visible mark.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="icon" aria-hidden="true">1</div>
+          <h3 data-copy="step1Title">Choose your session</h3>
+          <p data-copy="step1Text">Set focus time, break time, rounds, and the mode that suits you.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">2</div>
+          <h3 data-copy="step2Title">Stay with the timer</h3>
+          <p data-copy="step2Text">Gentle mode lets you pause. Focus mode keeps each round uninterrupted.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">3</div>
+          <h3 data-copy="step3Title">Watch it grow</h3>
+          <p data-copy="step3Text">Completed focus rounds advance your civilization, population, and story.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="platform-title">
+      <div class="section-heading">
+        <h2 id="platform-title" data-copy="platformTitle">Made for each Apple device</h2>
+        <p data-copy="platformIntro">Your core experience is consistent, with platform-specific tools where they make sense.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="icon" aria-hidden="true">M</div>
+          <h3 data-copy="macTitle">Mac</h3>
+          <p data-copy="macText">Focus timer, civilization, and optional blocking of selected apps and domains after you grant the required system permission.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">iP</div>
+          <h3 data-copy="iphoneTitle">iPhone</h3>
+          <p data-copy="iphoneText">A focused mobile timer with Live Activity support and your civilization close at hand. It does not block other apps or websites.</p>
+        </article>
+        <article class="card">
+          <div class="icon" aria-hidden="true">iPad</div>
+          <h3 data-copy="ipadTitle">iPad</h3>
+          <p data-copy="ipadText">The same mobile focus experience, adapted to the larger display. It does not block other apps or websites.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="faq-title">
+      <div class="section-heading">
+        <h2 id="faq-title" data-copy="faqTitle">Common questions</h2>
+        <p data-copy="faqIntro">The essentials, without making you search through a manual.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary data-copy="q1">Does Hourglass require an account or subscription?</summary>
+          <div class="answer"><p data-copy="a1">No. Hourglass does not require an account, sign-in, or subscription. Your focus history, settings, and civilization are stored locally on your device.</p></div>
+        </details>
+        <details>
+          <summary data-copy="q2">Why does app or website blocking only appear on Mac?</summary>
+          <div class="answer"><p data-copy="a2">Blocking is a macOS-only feature that uses a system extension and permissions you control. The iPhone and iPad versions are designed around the timer, Live Activity, and civilization experience and do not block apps or websites.</p></div>
+        </details>
+        <details>
+          <summary data-copy="q3">What happens if I leave the app during a session?</summary>
+          <div class="answer"><p data-copy="a3">The timer continues and the active session is restored when you return. On iPhone, a Live Activity can show the current session when the system supports it.</p></div>
+        </details>
+        <details>
+          <summary data-copy="q4">Does my progress sync between devices?</summary>
+          <div class="answer"><p data-copy="a4">No. Hourglass currently keeps its data locally on each device, so progress does not automatically sync between Mac, iPhone, and iPad.</p></div>
+        </details>
+        <details>
+          <summary data-copy="q5">How do I report a problem?</summary>
+          <div class="answer">
+            <p data-copy="a5">Email us with the device model, operating system version, Hourglass version, what you expected, and the steps that reproduce the issue. Screenshots are helpful when they do not contain private information.</p>
+          </div>
+        </details>
+        <details>
+          <summary data-copy="q6">How is my privacy protected?</summary>
+          <div class="answer"><p data-copy="a6">Hourglass is designed to keep app data on your device and does not use first-party advertising or analytics. Read the Privacy Policy for the complete details.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <section class="contact" aria-labelledby="contact-title">
+      <div>
+        <h2 id="contact-title" data-copy="contactTitle">Still need a hand?</h2>
+        <p data-copy="contactText">Write to us and we will help you troubleshoot Hourglass. Support is available in English and Spanish.</p>
+      </div>
+      <a class="button primary" href="mailto:vxctor@automore.es?subject=Hourglass%20Support">vxctor@automore.es</a>
+    </section>
+  </main>
+
+  <footer class="shell">
+    <span>© 2026 Víctor López Moreno · Hourglass</span>
+    <nav aria-label="Legal">
+      <a href="privacy.html" data-copy="privacyFooter">Privacy Policy</a>
+      <a href="mailto:vxctor@automore.es?subject=Hourglass%20Support" data-copy="supportFooter">Support</a>
+    </nav>
+  </footer>
+
+  <script>
+    const translations = {
+      en: {
+        eyebrow: "Hourglass · Support",
+        title: "Focus your time. Grow your world.",
+        lead: "Hourglass turns focused time into the story of a living civilization. Find quick answers for Mac, iPhone, and iPad, or contact us directly.",
+        contactButton: "Contact support", privacyButton: "Privacy Policy",
+        startTitle: "A simple way to begin", startIntro: "Set your rhythm, start a session, and let every completed round leave a visible mark.",
+        step1Title: "Choose your session", step1Text: "Set focus time, break time, rounds, and the mode that suits you.",
+        step2Title: "Stay with the timer", step2Text: "Gentle mode lets you pause. Focus mode keeps each round uninterrupted.",
+        step3Title: "Watch it grow", step3Text: "Completed focus rounds advance your civilization, population, and story.",
+        platformTitle: "Made for each Apple device", platformIntro: "Your core experience is consistent, with platform-specific tools where they make sense.",
+        macTitle: "Mac", macText: "Focus timer, civilization, and optional blocking of selected apps and domains after you grant the required system permission.",
+        iphoneTitle: "iPhone", iphoneText: "A focused mobile timer with Live Activity support and your civilization close at hand. It does not block other apps or websites.",
+        ipadTitle: "iPad", ipadText: "The same mobile focus experience, adapted to the larger display. It does not block other apps or websites.",
+        faqTitle: "Common questions", faqIntro: "The essentials, without making you search through a manual.",
+        q1: "Does Hourglass require an account or subscription?", a1: "No. Hourglass does not require an account, sign-in, or subscription. Your focus history, settings, and civilization are stored locally on your device.",
+        q2: "Why does app or website blocking only appear on Mac?", a2: "Blocking is a macOS-only feature that uses a system extension and permissions you control. The iPhone and iPad versions are designed around the timer, Live Activity, and civilization experience and do not block apps or websites.",
+        q3: "What happens if I leave the app during a session?", a3: "The timer continues and the active session is restored when you return. On iPhone, a Live Activity can show the current session when the system supports it.",
+        q4: "Does my progress sync between devices?", a4: "No. Hourglass currently keeps its data locally on each device, so progress does not automatically sync between Mac, iPhone, and iPad.",
+        q5: "How do I report a problem?", a5: "Email us with the device model, operating system version, Hourglass version, what you expected, and the steps that reproduce the issue. Screenshots are helpful when they do not contain private information.",
+        q6: "How is my privacy protected?", a6: "Hourglass is designed to keep app data on your device and does not use first-party advertising or analytics. Read the Privacy Policy for the complete details.",
+        contactTitle: "Still need a hand?", contactText: "Write to us and we will help you troubleshoot Hourglass. Support is available in English and Spanish.",
+        privacyFooter: "Privacy Policy", supportFooter: "Support", documentTitle: "Hourglass Support"
+      },
+      es: {
+        eyebrow: "Hourglass · Soporte",
+        title: "Concentra tu tiempo. Haz crecer tu mundo.",
+        lead: "Hourglass convierte el tiempo de concentración en la historia de una civilización viva. Encuentra respuestas para Mac, iPhone y iPad o escríbenos directamente.",
+        contactButton: "Contactar con soporte", privacyButton: "Política de privacidad",
+        startTitle: "Una forma sencilla de empezar", startIntro: "Elige tu ritmo, inicia una sesión y deja que cada ronda completada tenga un efecto visible.",
+        step1Title: "Configura tu sesión", step1Text: "Elige el tiempo de concentración, los descansos, las rondas y el modo que mejor se adapte a ti.",
+        step2Title: "Concéntrate en el tiempo", step2Text: "El modo Suave permite pausar. El modo Concentración mantiene cada ronda sin interrupciones.",
+        step3Title: "Observa cómo crece", step3Text: "Las rondas completadas hacen avanzar tu civilización, su población y su historia.",
+        platformTitle: "Creada para cada dispositivo Apple", platformIntro: "La experiencia esencial es la misma, con funciones específicas donde tienen sentido.",
+        macTitle: "Mac", macText: "Temporizador, civilización y bloqueo opcional de las apps y dominios que elijas, tras conceder el permiso necesario del sistema.",
+        iphoneTitle: "iPhone", iphoneText: "Un temporizador móvil con Actividad en directo y tu civilización siempre a mano. No bloquea otras apps ni páginas web.",
+        ipadTitle: "iPad", ipadText: "La misma experiencia móvil, adaptada a una pantalla mayor. No bloquea otras apps ni páginas web.",
+        faqTitle: "Preguntas frecuentes", faqIntro: "Lo esencial, sin obligarte a buscar en un manual.",
+        q1: "¿Hourglass necesita una cuenta o suscripción?", a1: "No. Hourglass no necesita cuenta, inicio de sesión ni suscripción. Tu historial, ajustes y civilización se guardan localmente en tu dispositivo.",
+        q2: "¿Por qué el bloqueo de apps y webs solo aparece en Mac?", a2: "El bloqueo es una función exclusiva de macOS que utiliza una extensión del sistema y permisos que tú controlas. En iPhone y iPad, Hourglass se centra en el temporizador, la Actividad en directo y la civilización, y no bloquea apps ni páginas web.",
+        q3: "¿Qué ocurre si salgo de la app durante una sesión?", a3: "El temporizador continúa y la sesión activa se restaura cuando vuelves. En iPhone, una Actividad en directo puede mostrar la sesión actual cuando el sistema lo permite.",
+        q4: "¿Se sincroniza mi progreso entre dispositivos?", a4: "No. Actualmente Hourglass guarda sus datos de forma local en cada dispositivo, por lo que el progreso no se sincroniza automáticamente entre Mac, iPhone y iPad.",
+        q5: "¿Cómo comunico un problema?", a5: "Envíanos un correo con el modelo del dispositivo, la versión del sistema operativo y de Hourglass, qué esperabas que ocurriera y los pasos para reproducir el problema. Las capturas ayudan si no contienen información privada.",
+        q6: "¿Cómo protege Hourglass mi privacidad?", a6: "Hourglass está diseñada para mantener los datos de la app en tu dispositivo y no utiliza publicidad ni analítica propias. Consulta la Política de privacidad para conocer todos los detalles.",
+        contactTitle: "¿Aún necesitas ayuda?", contactText: "Escríbenos y te ayudaremos a resolver el problema. Ofrecemos soporte en español e inglés.",
+        privacyFooter: "Política de privacidad", supportFooter: "Soporte", documentTitle: "Soporte de Hourglass"
+      },
+      zh: {
+        eyebrow: "Hourglass · 支持",
+        title: "专注当下，见证世界成长。",
+        lead: "Hourglass 将专注时间化为一段鲜活文明的故事。在此查找 Mac、iPhone 和 iPad 的常见问题解答，或直接联系我们。",
+        contactButton: "联系支持", privacyButton: "隐私政策",
+        startTitle: "轻松开始", startIntro: "设定节奏，开始专注，让每个完成的回合都留下看得见的变化。",
+        step1Title: "设置专注时段", step1Text: "选择专注时长、休息时长、回合数以及适合你的模式。",
+        step2Title: "专注计时", step2Text: "柔和模式允许暂停；专注模式会让每个回合保持不间断。",
+        step3Title: "见证文明成长", step3Text: "每个完成的专注回合都会推动文明、人口和故事向前发展。",
+        platformTitle: "为每台 Apple 设备而设计", platformIntro: "核心体验始终一致，并在合适的平台提供专属功能。",
+        macTitle: "Mac", macText: "提供专注计时、文明系统，以及可选的应用和域名阻止功能；启用阻止前需由你授予相应的系统权限。",
+        iphoneTitle: "iPhone", iphoneText: "移动专注计时器支持实时活动，并可随时查看你的文明。iPhone 版不会阻止其他应用或网站。",
+        ipadTitle: "iPad", ipadText: "同样的移动专注体验，针对更大屏幕优化。iPad 版不会阻止其他应用或网站。",
+        faqTitle: "常见问题", faqIntro: "无需翻阅手册，即可了解关键信息。",
+        q1: "Hourglass 是否需要账户或订阅？", a1: "不需要。Hourglass 无需账户、登录或订阅。你的专注历史、设置和文明数据都保存在设备本地。",
+        q2: "为什么应用和网站阻止功能只在 Mac 上提供？", a2: "阻止功能为 macOS 专属，需要使用系统扩展以及由你控制的权限。iPhone 和 iPad 版专注于计时器、实时活动和文明体验，不会阻止应用或网站。",
+        q3: "专注期间离开应用会怎样？", a3: "计时器会继续运行，返回应用后会恢复当前会话。在系统支持时，iPhone 可通过实时活动显示当前会话。",
+        q4: "进度会在设备之间同步吗？", a4: "不会。Hourglass 目前将数据分别保存在每台设备本地，因此进度不会在 Mac、iPhone 和 iPad 之间自动同步。",
+        q5: "如何报告问题？", a5: "请通过邮件告知我们设备型号、操作系统版本、Hourglass 版本、你的预期结果以及复现步骤。不含私人信息的截图也会有所帮助。",
+        q6: "Hourglass 如何保护我的隐私？", a6: "Hourglass 以将应用数据保留在设备本地为设计原则，并且不使用第一方广告或分析工具。完整信息请参阅隐私政策。",
+        contactTitle: "仍然需要帮助？", contactText: "请发送邮件，我们会协助你排查 Hourglass 的问题。支持语言为英语和西班牙语。",
+        privacyFooter: "隐私政策", supportFooter: "支持", documentTitle: "Hourglass 支持"
+      }
+    };
+
+    const buttons = [...document.querySelectorAll("[data-language]")];
+    const nodes = [...document.querySelectorAll("[data-copy]")];
+
+    function selectLanguage(language) {
+      const copy = translations[language] || translations.en;
+      buttons.forEach(button => button.setAttribute("aria-selected", String(button.dataset.language === language)));
+      nodes.forEach(node => { node.textContent = copy[node.dataset.copy]; });
+      document.documentElement.lang = language === "zh" ? "zh-Hans" : language;
+      document.title = copy.documentTitle;
+      try { localStorage.setItem("hourglass-language", language); } catch (_) {}
+    }
+
+    buttons.forEach(button => button.addEventListener("click", () => selectLanguage(button.dataset.language)));
+    let savedLanguage = "";
+    try { savedLanguage = localStorage.getItem("hourglass-language") || ""; } catch (_) {}
+    const browserLanguage = (navigator.language || "").toLowerCase();
+    const initialLanguage = savedLanguage || (browserLanguage.startsWith("es") ? "es" : browserLanguage.startsWith("zh") ? "zh" : "en");
+    selectLanguage(initialLanguage);
+  </script>
+</body>
+</html>
