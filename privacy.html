@@ -367,9 +367,32 @@
     document.title = chrome[language].documentTitle;
   }
 
-  buttons.forEach(button => button.addEventListener('click', () => selectLanguage(button.dataset.language)));
+  function normalizedLanguage(value) {
+    const language = (value || '').toLowerCase();
+    if (language === 'cn' || language.startsWith('zh')) return 'zh';
+    if (language.startsWith('es')) return 'es';
+    if (language.startsWith('en')) return 'en';
+    return null;
+  }
+
+  function languageFromURL() {
+    const queryLanguage = new URLSearchParams(window.location.search).get('lang');
+    return normalizedLanguage(queryLanguage || window.location.hash.slice(1));
+  }
+
+  function updateLanguageURL(language) {
+    const url = new URL(window.location.href);
+    url.searchParams.set('lang', language);
+    url.hash = '';
+    window.history.replaceState({}, '', url);
+  }
+
+  buttons.forEach(button => button.addEventListener('click', () => {
+    updateLanguageURL(button.dataset.language);
+    selectLanguage(button.dataset.language);
+  }));
   const preferred = (navigator.language || '').toLowerCase();
-  selectLanguage(preferred.startsWith('es') ? 'es' : preferred.startsWith('zh') ? 'zh' : 'en');
+  selectLanguage(languageFromURL() || normalizedLanguage(preferred) || 'en');
 </script>
 </body>
 </html>
