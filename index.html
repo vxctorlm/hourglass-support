@@ -515,16 +515,43 @@
       const copy = translations[language] || translations.en;
       buttons.forEach(button => button.setAttribute("aria-selected", String(button.dataset.language === language)));
       nodes.forEach(node => { node.textContent = copy[node.dataset.copy]; });
+      document.querySelectorAll('a[href^="privacy.html"]').forEach(link => {
+        link.href = `privacy.html?lang=${language}`;
+      });
+      document.querySelector('.brand').href = `index.html?lang=${language}`;
       document.documentElement.lang = language === "zh" ? "zh-Hans" : language;
       document.title = copy.documentTitle;
       try { localStorage.setItem("hourglass-language", language); } catch (_) {}
     }
 
-    buttons.forEach(button => button.addEventListener("click", () => selectLanguage(button.dataset.language)));
+    function normalizedLanguage(value) {
+      const language = (value || "").toLowerCase();
+      if (language === "cn" || language.startsWith("zh")) return "zh";
+      if (language.startsWith("es")) return "es";
+      if (language.startsWith("en")) return "en";
+      return null;
+    }
+
+    function languageFromURL() {
+      const queryLanguage = new URLSearchParams(window.location.search).get("lang");
+      return normalizedLanguage(queryLanguage || window.location.hash.slice(1));
+    }
+
+    function updateLanguageURL(language) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", language);
+      url.hash = "";
+      window.history.replaceState({}, "", url);
+    }
+
+    buttons.forEach(button => button.addEventListener("click", () => {
+      updateLanguageURL(button.dataset.language);
+      selectLanguage(button.dataset.language);
+    }));
     let savedLanguage = "";
     try { savedLanguage = localStorage.getItem("hourglass-language") || ""; } catch (_) {}
     const browserLanguage = (navigator.language || "").toLowerCase();
-    const initialLanguage = savedLanguage || (browserLanguage.startsWith("es") ? "es" : browserLanguage.startsWith("zh") ? "zh" : "en");
+    const initialLanguage = languageFromURL() || normalizedLanguage(savedLanguage) || normalizedLanguage(browserLanguage) || "en";
     selectLanguage(initialLanguage);
   </script>
 </body>
