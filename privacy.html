@@ -57,13 +57,11 @@
 <body>
 <main>
   <header>
-    <a href="index.html" aria-label="Hourglass Support">
-      <img class="app-icon" src="hourglass-icon.png" alt="Hourglass icon">
-    </a>
-    <p class="eyebrow">Hourglass · Privacy</p>
-    <h1>Privacy, made clear.</h1>
-    <p class="summary">Your focus sessions and civilization stay on your device. This policy explains the limited local processing and the few connections used by Hourglass.</p>
-    <span class="updated">Effective and last updated: September 18, 2026</span>
+    <img class="app-icon" src="hourglass-icon.png" alt="Hourglass icon">
+    <p class="eyebrow" id="page-eyebrow">Hourglass · Privacy</p>
+    <h1 id="page-title">Privacy, made clear.</h1>
+    <p class="summary" id="page-summary">Your focus sessions and civilization stay on your device. This policy explains the limited local processing and the few connections used by Hourglass.</p>
+    <span class="updated" id="page-updated">Effective and last updated: September 18, 2026</span>
     <div class="platforms" aria-label="Covered platforms"><span>macOS</span><span>iOS</span><span>iPadOS</span></div>
   </header>
 
@@ -96,3 +94,282 @@
       <h3>Support</h3>
       <p>If you contact us by email, we receive your email address, message and any files or diagnostic details you choose to include. Please do not send information that is not needed to resolve your request.</p>
     </section>
+
+    <section class="card">
+      <h2>3. Updates and external connections</h2>
+      <p>The Developer ID version for macOS uses the open-source Sparkle framework to check an Hourglass appcast hosted on GitHub Pages and, when you approve an update, to download it from the location listed in that feed. These HTTPS requests necessarily disclose standard connection data to the hosting provider, such as the IP address, date and time, request headers, and app or user-agent version. Hourglass does not enable Sparkle system profiling and does not add hardware, language or other custom profile fields to update requests.</p>
+      <p>GitHub may retain standard service and security logs under its own policy. See the <a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a> and <a href="https://docs.github.com/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">GitHub Pages data-collection notice</a>.</p>
+      <p>Versions distributed through Apple are delivered through Apple services. Apple may independently process App Store, download, purchase, device and diagnostic information under the <a href="https://www.apple.com/legal/privacy/">Apple Privacy Policy</a>. Hourglass does not receive your Apple ID, payment-card or complete transaction information.</p>
+    </section>
+
+    <section class="card">
+      <h2>4. What we do not collect</h2>
+      <p>Hourglass has no developer-operated backend and does not collect or transmit account details, precise or approximate location, contacts, photos, camera or microphone data, health data, advertising identifiers, browsing history, focus history or civilization data. It contains no advertising SDK, analytics SDK, crash-reporting SDK, social login, in-app purchase, artificial-intelligence service or cross-app tracking.</p>
+      <p>We do not sell or rent personal information and do not use personal information for advertising, profiling or automated decisions with legal or similarly significant effects. Decisions made inside the civilization are fictional gameplay generated locally.</p>
+    </section>
+
+    <section class="card">
+      <h2>5. Purposes and legal bases</h2>
+      <ul>
+        <li><strong>App functionality:</strong> keep your chosen settings, restore timers, maintain local history and civilization progress, and provide the macOS blocking features you request. Processing occurs on your device to provide the requested app functionality.</li>
+        <li><strong>Updates, security and reliability:</strong> retrieve signed update information and downloads for the Developer ID macOS version, based on providing the service and our legitimate interest in keeping Hourglass secure and current.</li>
+        <li><strong>Support:</strong> answer messages and troubleshoot issues, based on taking steps at your request and our legitimate interest in supporting the app.</li>
+        <li><strong>Legal compliance:</strong> meet applicable legal, security and consumer-protection obligations.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>6. Sharing and international processing</h2>
+      <p>We do not receive or share the locally stored app data described above. Limited network information may be processed independently by Apple when distributing the app or providing operating-system services, and by GitHub when serving the macOS update feed or downloads. Information may also be disclosed where legally required. Apple and GitHub may process information outside your country using the safeguards described in their policies.</p>
+    </section>
+
+    <section class="card">
+      <h2>7. Retention and deletion</h2>
+      <ul>
+        <li>Local preferences, focus history and civilization progress remain until you reset them, remove the relevant data through the app where available, or uninstall Hourglass. Completed-session history is limited to the latest 90 entries.</li>
+        <li>An active-session snapshot is removed when the session is stopped or completed.</li>
+        <li>macOS filter rules remain locally until changed, cleared, or Hourglass and its system extension are removed. You can disable the extension in macOS System Settings.</li>
+        <li>Server logs generated by Apple or GitHub are retained under their respective policies.</li>
+        <li>Support emails are kept only as long as reasonably needed to resolve the request, maintain necessary security records and meet legal obligations, then deleted or anonymized.</li>
+      </ul>
+      <p>You may request deletion of information held directly by us at <a href="mailto:vxctor@automore.es">vxctor@automore.es</a>. We may ask for reasonable verification. We cannot remotely access or erase data stored only on your device, or records controlled solely by Apple or GitHub.</p>
+    </section>
+
+    <section class="card">
+      <h2>8. Your rights and choices</h2>
+      <p>Depending on where you live, you may have rights to access, correct, delete, restrict or object to processing; receive portable data; withdraw consent without affecting earlier lawful processing; and lodge a complaint with a data-protection authority. We will respond to valid requests without undue delay and generally within one month, subject to any lawful extension. In Spain, you may contact the <a href="https://www.aepd.es/">Spanish Data Protection Agency (AEPD)</a>.</p>
+      <p>You can change local settings in Hourglass, stop a session, clear or reset available app data, disable or remove the macOS filter in System Settings, control backups in Apple settings, and uninstall the app to remove its local container subject to operating-system backup behavior.</p>
+    </section>
+
+    <section class="card">
+      <h2>9. Children</h2>
+      <p>Hourglass is a general-audience productivity app and is not specifically directed to children below the minimum digital-consent age in their country. The app does not request a child’s name, email address, location or contact details. A parent or guardian who believes a child sent personal information through a support request may contact us for review and deletion.</p>
+    </section>
+
+    <section class="card">
+      <h2>10. Security, this website and changes</h2>
+      <p>Hourglass uses Apple platform protections, local data minimization, a sandboxed App Group for macOS filter rules, and signed update verification. No storage or transmission system can be guaranteed completely secure.</p>
+      <p>This static privacy page contains no first-party cookies, advertising, analytics or contact forms. If hosted on GitHub Pages, GitHub logs visitors’ IP addresses for security purposes under its own notice. We may update this policy when Hourglass, its providers or applicable law changes. Material changes will be reflected by the date above and, where appropriate, an in-app notice.</p>
+    </section>
+
+    <div class="contact"><strong>Privacy contact</strong><p>Questions, rights requests or deletion requests:</p><a href="mailto:vxctor@automore.es">vxctor@automore.es</a></div>
+  </article>
+
+  <article class="language" data-content="es" lang="es">
+    <div class="notice"><strong>Lo esencial</strong><p>Hourglass no requiere cuenta y no incluye publicidad, seguimiento ni analítica. Tus sesiones de concentración y el progreso de la civilización se guardan localmente y no se envían al desarrollador.</p></div>
+
+    <section class="card">
+      <h2>1. Responsable</h2>
+      <p>Hourglass es ofrecida por Víctor López Moreno, España (el «desarrollador», «Hourglass» o «nosotros»). Para consultas de privacidad, ejercicio de derechos o solicitudes de eliminación, escribe a <a href="mailto:vxctor@automore.es">vxctor@automore.es</a>.</p>
+    </section>
+
+    <section class="card">
+      <h2>2. Alcance e información utilizada</h2>
+      <p>Esta política se aplica a Hourglass para macOS, iOS y iPadOS, a su extensión de filtrado web para macOS y a esta página de privacidad.</p>
+      <h3>Información guardada en tu dispositivo</h3>
+      <p>Hourglass guarda el idioma elegido; la duración de concentración, los descansos y el nivel de exigencia; las apps y dominios seleccionados en macOS; una instantánea de la sesión activa; hasta 90 registros de sesiones terminadas con fecha de finalización, rondas completadas y minutos de concentración; y el estado e historial de la civilización ficticia. Esta información se almacena mediante los sistemas de Apple en el dispositivo.</p>
+      <p>Las copias de seguridad del sistema dependen de tus ajustes de Apple y del dispositivo. Hourglass no opera un servicio de sincronización en la nube y el progreso de la civilización no se sincroniza entre dispositivos.</p>
+      <h3>Bloqueo de aplicaciones en macOS</h3>
+      <p>Si activas el bloqueo de aplicaciones, Hourglass guarda los identificadores y nombres de las apps que eliges. Durante una ronda de concentración observa qué app pasa a primer plano, compara localmente su identificador con tu lista y la cierra si coincide. El nombre e icono de esa app pueden mostrarse brevemente en un recordatorio local. Hourglass no crea ni transmite un historial de las aplicaciones que abres.</p>
+      <h3>Filtrado de sitios web en macOS</h3>
+      <p>Si autorizas la protección web, la extensión de sistema de Hourglass recibe la información de destino de los flujos de red que facilita macOS y compara localmente el nombre de host con los dominios seleccionados. Las conexiones coincidentes se bloquean. La extensión no inspecciona el contenido de las páginas, no registra el historial de navegación ni transmite a nosotros los hosts visitados. La lista de dominios, el estado del filtro y un número de revisión de reglas se guardan localmente en el App Group de Hourglass para que la app y la extensión compartan las reglas.</p>
+      <h3>iPhone y iPad</h3>
+      <p>Las versiones para iOS y iPadOS no inspeccionan, cierran ni bloquean otras apps y no filtran sitios web. No incorporan Network Extension ni un actualizador externo.</p>
+      <h3>Soporte</h3>
+      <p>Si nos escribes por correo, recibimos tu dirección de email, el mensaje y los archivos o datos de diagnóstico que decidas incluir. No envíes información innecesaria para resolver la consulta.</p>
+    </section>
+
+    <section class="card">
+      <h2>3. Actualizaciones y conexiones externas</h2>
+      <p>La versión Developer ID para macOS usa el framework de código abierto Sparkle para consultar un appcast de Hourglass alojado en GitHub Pages y, cuando apruebas una actualización, descargarla desde la ubicación indicada en ese feed. Estas solicitudes HTTPS comunican necesariamente al proveedor de alojamiento datos técnicos estándar como dirección IP, fecha y hora, cabeceras de la solicitud y versión de la app o del agente de usuario. Hourglass no activa el perfilado de sistema de Sparkle ni añade datos personalizados sobre hardware, idioma u otros perfiles a las solicitudes.</p>
+      <p>GitHub puede conservar registros estándar de servicio y seguridad conforme a su política. Consulta la <a href="https://docs.github.com/es/site-policy/privacy-policies/github-general-privacy-statement">Declaración de privacidad de GitHub</a> y el <a href="https://docs.github.com/es/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">aviso de recopilación de GitHub Pages</a>.</p>
+      <p>Las versiones distribuidas por Apple se entregan mediante sus servicios. Apple puede tratar de forma independiente información sobre App Store, descargas, compras, dispositivos y diagnósticos conforme a la <a href="https://www.apple.com/legal/privacy/es/">Política de privacidad de Apple</a>. Hourglass no recibe tu Apple ID, número de tarjeta ni la información completa de las transacciones.</p>
+    </section>
+
+    <section class="card">
+      <h2>4. Información que no recopilamos</h2>
+      <p>Hourglass no tiene un backend gestionado por el desarrollador y no recopila ni transmite datos de cuenta, ubicación precisa o aproximada, contactos, fotos, cámara o micrófono, salud, identificadores publicitarios, historial de navegación, historial de concentración ni datos de la civilización. No incluye SDK de publicidad, analítica o fallos, inicio de sesión social, compras dentro de la app, servicios de inteligencia artificial ni seguimiento entre apps.</p>
+      <p>No vendemos ni alquilamos información personal y no la usamos para publicidad, elaboración de perfiles o decisiones automatizadas que produzcan efectos jurídicos o similares. Las decisiones de la civilización son parte de una simulación ficticia que se ejecuta localmente.</p>
+    </section>
+
+    <section class="card">
+      <h2>5. Finalidades y bases jurídicas</h2>
+      <ul>
+        <li><strong>Funcionalidad de la app:</strong> conservar tus ajustes, restaurar temporizadores, mantener el historial local y la civilización, y prestar las funciones de bloqueo de macOS que solicites. El tratamiento se realiza en tu dispositivo para prestar la funcionalidad solicitada.</li>
+        <li><strong>Actualizaciones, seguridad y fiabilidad:</strong> obtener información y descargas firmadas para la versión Developer ID de macOS, sobre la base de la prestación del servicio y nuestro interés legítimo en mantener Hourglass segura y actualizada.</li>
+        <li><strong>Soporte:</strong> responder mensajes y resolver problemas, para atender tu solicitud y por nuestro interés legítimo en ofrecer soporte.</li>
+        <li><strong>Cumplimiento legal:</strong> atender obligaciones legales, de seguridad y de protección de consumidores aplicables.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>6. Destinatarios y transferencias internacionales</h2>
+      <p>No recibimos ni compartimos los datos locales de la app descritos anteriormente. Apple puede tratar de forma independiente información de red limitada al distribuir la app o prestar servicios del sistema, y GitHub al servir el feed o las descargas de actualización de macOS. También podrá comunicarse información cuando exista una obligación legal. Apple y GitHub pueden tratar información fuera de tu país con las garantías descritas en sus políticas.</p>
+    </section>
+
+    <section class="card">
+      <h2>7. Conservación y eliminación</h2>
+      <ul>
+        <li>Las preferencias, el historial de concentración y la civilización permanecen localmente hasta que los restableces, eliminas los datos disponibles desde la app o desinstalas Hourglass. El historial de sesiones terminadas se limita a las 90 más recientes.</li>
+        <li>La instantánea de una sesión activa se elimina cuando la sesión se detiene o termina.</li>
+        <li>Las reglas del filtro de macOS permanecen localmente hasta que las cambias, las vacías o eliminas Hourglass y su extensión. Puedes desactivar la extensión en Ajustes del Sistema de macOS.</li>
+        <li>Los registros de servidor generados por Apple o GitHub se conservan conforme a sus políticas respectivas.</li>
+        <li>Los correos de soporte se guardan solo durante el tiempo razonablemente necesario para resolver la consulta, mantener los registros de seguridad imprescindibles y cumplir obligaciones legales; después se eliminan o anonimizan.</li>
+      </ul>
+      <p>Puedes solicitar la eliminación de información que controlemos directamente escribiendo a <a href="mailto:vxctor@automore.es">vxctor@automore.es</a>. Podremos pedir una verificación razonable. No podemos acceder de forma remota a los datos que están únicamente en tu dispositivo ni borrar registros controlados exclusivamente por Apple o GitHub.</p>
+    </section>
+
+    <section class="card">
+      <h2>8. Tus derechos y opciones</h2>
+      <p>Según tu lugar de residencia, puedes solicitar acceso, rectificación, supresión, limitación, oposición y portabilidad; retirar el consentimiento sin afectar al tratamiento previo; y reclamar ante una autoridad de protección de datos. Responderemos a las solicitudes válidas sin dilación indebida y, con carácter general, en el plazo de un mes, sin perjuicio de las prórrogas legalmente previstas. En España puedes acudir a la <a href="https://www.aepd.es/">Agencia Española de Protección de Datos (AEPD)</a>.</p>
+      <p>Puedes cambiar los ajustes locales en Hourglass, detener una sesión, borrar o restablecer los datos que permita la app, desactivar o eliminar el filtro de macOS desde Ajustes del Sistema, controlar las copias de seguridad en los ajustes de Apple y desinstalar la app para eliminar su contenedor local, sin perjuicio del funcionamiento de las copias de seguridad del sistema.</p>
+    </section>
+
+    <section class="card">
+      <h2>9. Menores</h2>
+      <p>Hourglass es una app de productividad para público general y no está dirigida específicamente a menores de la edad mínima de consentimiento digital de su país. La app no solicita el nombre, correo, ubicación ni datos de contacto de menores. Un progenitor o tutor que crea que un menor envió información personal mediante una consulta de soporte puede contactarnos para revisarla y eliminarla.</p>
+    </section>
+
+    <section class="card">
+      <h2>10. Seguridad, esta web y cambios</h2>
+      <p>Hourglass aplica las protecciones de las plataformas de Apple, minimización local, un App Group aislado para las reglas del filtro de macOS y verificación firmada de actualizaciones. Ningún sistema de almacenamiento o transmisión puede garantizarse como completamente seguro.</p>
+      <p>Esta página estática no contiene cookies propias, publicidad, analítica ni formularios. Si se aloja en GitHub Pages, GitHub registra las direcciones IP de los visitantes con fines de seguridad conforme a su aviso. Podemos actualizar esta política si cambian Hourglass, sus proveedores o la legislación aplicable. Los cambios relevantes se reflejarán en la fecha superior y, cuando proceda, mediante un aviso en la app.</p>
+    </section>
+
+    <div class="contact"><strong>Contacto de privacidad</strong><p>Consultas, ejercicio de derechos o solicitudes de eliminación:</p><a href="mailto:vxctor@automore.es">vxctor@automore.es</a></div>
+  </article>
+
+  <article class="language" data-content="zh" lang="zh-Hans">
+    <div class="notice"><strong>核心说明</strong><p>Hourglass 无需注册账号，也不包含广告、跟踪或分析功能。专注记录与文明进度保存在设备本地，不会发送给开发者。</p></div>
+
+    <section class="card">
+      <h2>1. 负责人</h2>
+      <p>Hourglass 由西班牙的 Víctor López Moreno 提供（下称“开发者”“Hourglass”或“我们”）。如有隐私问题、权利请求或删除请求，请发送邮件至 <a href="mailto:vxctor@automore.es">vxctor@automore.es</a>。</p>
+    </section>
+
+    <section class="card">
+      <h2>2. 适用范围与使用的信息</h2>
+      <p>本政策适用于 macOS、iOS 和 iPadOS 版 Hourglass、其 macOS 网站过滤扩展以及本隐私页面。</p>
+      <h3>保存在设备上的信息</h3>
+      <p>Hourglass 会保存所选语言；专注时长、休息设置和严格程度；macOS 上选择的应用与域名；当前会话快照；最多 90 条已完成会话记录（包括完成日期、完成轮次和专注分钟数）；以及虚构文明的状态与历史。这些信息通过 Apple 的系统存储保存在设备上。</p>
+      <p>系统备份取决于你的 Apple 账号和设备设置。Hourglass 不运营云同步服务，文明进度不会在设备之间同步。</p>
+      <h3>macOS 应用阻止</h3>
+      <p>如果启用应用阻止，Hourglass 会保存你所选应用的名称与 Bundle Identifier。在专注轮次中，它会在本地识别当前切换到前台的应用，将其标识符与你的列表比较，并在匹配时关闭该应用。应用名称与图标可能会短暂显示在本地提示中。Hourglass 不会建立或传输你所打开应用的历史记录。</p>
+      <h3>macOS 网站过滤</h3>
+      <p>如果授权网站保护，Hourglass 系统扩展会接收 macOS 提供的网络流目标信息，并在本地将目标主机名与你选择的域名比较。匹配的连接会被阻止。扩展不会检查网页内容、记录浏览历史或向我们传输访问过的主机名。所选域名、过滤状态和规则修订号会保存在 Hourglass 的本地 App Group 中，供应用与扩展共享规则。</p>
+      <h3>iPhone 与 iPad</h3>
+      <p>iOS 和 iPadOS 版本不会检查、关闭或阻止其他应用，也不会过滤网站；这些版本不包含 Network Extension 或外部更新程序。</p>
+      <h3>支持</h3>
+      <p>如通过电子邮件联系我们，我们会收到你的邮箱地址、消息，以及你主动提供的文件或诊断详情。请勿发送解决问题所不需要的信息。</p>
+    </section>
+
+    <section class="card">
+      <h2>3. 更新与外部连接</h2>
+      <p>macOS 的 Developer ID 版本使用开源 Sparkle 框架检查托管于 GitHub Pages 的 Hourglass 更新源；在你确认更新后，会从更新源列出的位置下载更新。此类 HTTPS 请求必然会向托管服务商提供标准连接数据，例如 IP 地址、日期和时间、请求标头，以及应用或 User-Agent 版本。Hourglass 未启用 Sparkle 系统信息收集，也不会在更新请求中添加硬件、语言或其他自定义系统资料。</p>
+      <p>GitHub 可能依据其政策保留标准服务与安全日志。请参阅 <a href="https://docs.github.com/zh/site-policy/privacy-policies/github-general-privacy-statement">GitHub 隐私声明</a>和 <a href="https://docs.github.com/zh/pages/getting-started-with-github-pages/what-is-github-pages#data-collection">GitHub Pages 数据收集说明</a>。</p>
+      <p>通过 Apple 分发的版本由 Apple 服务交付。Apple 可能依据 <a href="https://www.apple.com/legal/privacy/szh/">Apple 隐私政策</a>独立处理 App Store、下载、购买、设备和诊断信息。Hourglass 不会收到你的 Apple ID、银行卡号或完整交易信息。</p>
+    </section>
+
+    <section class="card">
+      <h2>4. 我们不收集的信息</h2>
+      <p>Hourglass 没有开发者运营的后端，不收集或传输账号信息、精确或大致位置、联系人、照片、摄像头或麦克风数据、健康数据、广告标识符、浏览历史、专注历史或文明数据。应用不包含广告、分析或崩溃报告 SDK，也不包含社交登录、App 内购买、人工智能服务或跨 App 跟踪。</p>
+      <p>我们不会出售或出租个人信息，也不会将个人信息用于广告、用户画像或产生法律或类似重大影响的自动化决策。文明中的决策只是设备本地运行的虚构游戏模拟。</p>
+    </section>
+
+    <section class="card">
+      <h2>5. 处理目的与法律依据</h2>
+      <ul>
+        <li><strong>应用功能：</strong>保存你的设置、恢复计时器、维护本地历史与文明进度，并提供你主动要求的 macOS 阻止功能。相关处理仅在设备上进行，用于提供所请求的功能。</li>
+        <li><strong>更新、安全与可靠性：</strong>为 macOS Developer ID 版本获取经签名的更新信息和下载，依据提供服务的需要及我们保持 Hourglass 安全和最新的合法利益。</li>
+        <li><strong>支持：</strong>回复消息并排查问题，依据应你的请求采取措施以及我们提供应用支持的合法利益。</li>
+        <li><strong>法律合规：</strong>履行适用的法律、安全和消费者保护义务。</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>6. 共享与跨境处理</h2>
+      <p>我们不会接收或共享上述保存在本地的应用数据。Apple 在分发应用或提供操作系统服务时，GitHub 在提供 macOS 更新源或下载时，可能各自独立处理有限的网络信息。依法必须时，信息也可能向主管机关披露。Apple 和 GitHub 可能依据其政策所述保障措施，在你所在国家或地区以外处理信息。</p>
+    </section>
+
+    <section class="card">
+      <h2>7. 保留与删除</h2>
+      <ul>
+        <li>本地偏好、专注历史和文明进度会保留至你将其重置、通过应用提供的功能删除，或卸载 Hourglass。已完成会话历史最多保留最近 90 条。</li>
+        <li>当前会话快照会在会话停止或完成时删除。</li>
+        <li>macOS 过滤规则会保存在本地，直至你更改或清空规则，或移除 Hourglass 及其系统扩展。你可以在 macOS“系统设置”中停用该扩展。</li>
+        <li>Apple 或 GitHub 生成的服务器日志依据其各自政策保留。</li>
+        <li>支持邮件仅在解决请求、保留必要安全记录及履行法律义务所合理需要的期间内保存，之后删除或匿名化。</li>
+      </ul>
+      <p>如需删除由我们直接控制的信息，请发送邮件至 <a href="mailto:vxctor@automore.es">vxctor@automore.es</a>。我们可能要求进行合理的身份验证。我们无法远程访问或删除仅存储在你设备上的数据，也无法删除仅由 Apple 或 GitHub 控制的记录。</p>
+    </section>
+
+    <section class="card">
+      <h2>8. 你的权利与选择</h2>
+      <p>根据所在地法律，你可能有权访问、更正、删除、限制或反对处理、获取可移植数据、撤回同意（不影响此前处理的合法性），并向数据保护机构投诉。对于有效请求，我们会在不无故拖延的情况下作出答复，通常不超过一个月，但法律允许延期的情形除外。在西班牙，可联系 <a href="https://www.aepd.es/">西班牙数据保护局（AEPD）</a>。</p>
+      <p>你可以在 Hourglass 中修改本地设置、停止会话、清除或重置应用提供的数据；在“系统设置”中停用或移除 macOS 过滤器；在 Apple 设置中控制备份；或卸载应用以移除其本地容器，但系统备份的处理仍取决于操作系统设置。</p>
+    </section>
+
+    <section class="card">
+      <h2>9. 未成年人</h2>
+      <p>Hourglass 是面向一般用户的效率应用，并非专门面向低于其所在国家或地区数字同意最低年龄的儿童。应用不会要求儿童提供姓名、邮箱、位置或联系方式。如监护人认为儿童通过支持请求发送了个人信息，可联系我们审查并删除。</p>
+    </section>
+
+    <section class="card">
+      <h2>10. 安全、本网站与政策变更</h2>
+      <p>Hourglass 使用 Apple 平台保护、本地数据最小化、用于 macOS 过滤规则的沙盒 App Group，以及已签名更新验证。任何存储或传输系统均无法保证绝对安全。</p>
+      <p>本静态隐私页面不包含第一方 Cookie、广告、分析工具或联系表单。如果托管于 GitHub Pages，GitHub 会依据其说明记录访问者 IP 地址以保障安全。Hourglass、服务提供商或适用法律发生变化时，我们可能更新本政策。重大变化会体现在上方日期中，并在适当情况下通过应用内通知说明。</p>
+    </section>
+
+    <div class="contact"><strong>隐私联系</strong><p>咨询、权利请求或删除请求：</p><a href="mailto:vxctor@automore.es">vxctor@automore.es</a></div>
+  </article>
+
+  <footer id="page-footer">© 2026 Víctor López Moreno · Hourglass · This page has no first-party analytics or advertising.</footer>
+</main>
+<script>
+  const buttons = [...document.querySelectorAll('[data-language]')];
+  const sections = [...document.querySelectorAll('[data-content]')];
+  const chrome = {
+    en: {
+      eyebrow: 'Hourglass · Privacy',
+      title: 'Privacy, made clear.',
+      summary: 'Your focus sessions and civilization stay on your device. This policy explains the limited local processing and the few connections used by Hourglass.',
+      updated: 'Effective and last updated: September 18, 2026',
+      footer: '© 2026 Víctor López Moreno · Hourglass · This page has no first-party analytics or advertising.',
+      documentTitle: 'Hourglass Privacy Policy'
+    },
+    es: {
+      eyebrow: 'Hourglass · Privacidad',
+      title: 'Privacidad, sin rodeos.',
+      summary: 'Tus sesiones de concentración y tu civilización se quedan en tu dispositivo. Esta política explica el tratamiento local limitado y las pocas conexiones que utiliza Hourglass.',
+      updated: 'En vigor y última actualización: 18 de septiembre de 2026',
+      footer: '© 2026 Víctor López Moreno · Hourglass · Esta página no tiene publicidad ni analítica propia.',
+      documentTitle: 'Política de privacidad de Hourglass'
+    },
+    zh: {
+      eyebrow: 'Hourglass · 隐私',
+      title: '清晰透明的隐私保护。',
+      summary: '你的专注记录和文明进度保存在设备上。本政策说明 Hourglass 有限的本地处理以及少量必要连接。',
+      updated: '生效及最后更新日期：2026 年 9 月 18 日',
+      footer: '© 2026 Víctor López Moreno · Hourglass · 本页面不包含第一方分析或广告。',
+      documentTitle: 'Hourglass 隐私政策'
+    }
+  };
+
+  function selectLanguage(language) {
+    buttons.forEach(button => button.setAttribute('aria-selected', String(button.dataset.language === language)));
+    sections.forEach(section => section.classList.toggle('active', section.dataset.content === language));
+    document.documentElement.lang = language === 'zh' ? 'zh-Hans' : language;
+    document.querySelector('#page-eyebrow').textContent = chrome[language].eyebrow;
+    document.querySelector('#page-title').textContent = chrome[language].title;
+    document.querySelector('#page-summary').textContent = chrome[language].summary;
+    document.querySelector('#page-updated').textContent = chrome[language].updated;
+    document.querySelector('#page-footer').textContent = chrome[language].footer;
+    document.title = chrome[language].documentTitle;
+  }
+
+  buttons.forEach(button => button.addEventListener('click', () => selectLanguage(button.dataset.language)));
+  const preferred = (navigator.language || '').toLowerCase();
+  selectLanguage(preferred.startsWith('es') ? 'es' : preferred.startsWith('zh') ? 'zh' : 'en');
+</script>
+</body>
+</html>
